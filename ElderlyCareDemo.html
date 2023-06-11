@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Elderly Person Status</title>
+    <style>
+        /* Add some basic styles to the page */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        
+        h1 {
+            margin-bottom: 10px;
+        }
+        
+        .status-item {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Elderly Person Status</h1>
+
+    <div class="status-item">
+        <strong>Name:</strong>
+        <span id="person-name"></span>
+    </div>
+
+    <div class="status-item">
+        <strong>Awake:</strong>
+        <span id="awake-status"></span>
+    </div>
+
+    <div class="status-item">
+        <strong>Has Eaten:</strong>
+        <span id="eaten-status"></span>
+    </div>
+
+    <div class="status-item">
+        <strong>Has Taken Medication:</strong>
+        <span id="medication-status"></span>
+    </div>
+
+    <div class="status-item">
+        <strong>Last Update:</strong>
+        <span id="last-update"></span>
+    </div>
+
+    <script>
+        // Function to update the status on the UI
+        function updateStatusUI(status) {
+            document.getElementById('person-name').textContent = status.name;
+            document.getElementById('awake-status').textContent = status.isAwake ? 'Yes' : 'No';
+            document.getElementById('eaten-status').textContent = status.hasEaten ? 'Yes' : 'No';
+            document.getElementById('medication-status').textContent = status.hasTakenMedication ? 'Yes' : 'No';
+            document.getElementById('last-update').textContent = status.lastUpdate;
+        }
+
+        // Simulated status update received from the server
+        var simulatedStatusUpdate = {
+            name: "Sunita Sharma",
+            isAwake: true,
+            hasEaten: true,
+            hasTakenMedication: false,
+            lastUpdate: new Date().toString()
+        };
+
+        // Update the UI with the simulated status update
+        updateStatusUI(simulatedStatusUpdate);
+    </script>
+</body>
+</html>
